@@ -17,6 +17,14 @@ class Board(models.Model):
         blank=True
     )
 
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return f'{self.name}'
+
 
 class Topic(models.Model):
     subject = models.CharField(
@@ -37,6 +45,14 @@ class Topic(models.Model):
         related_name='topics',
         on_delete=models.DO_NOTHING
     )
+
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ['subject']
+
+    def __str__(self):
+        return f'{self.subject}'
 
 
 class Post(models.Model):
@@ -67,3 +83,11 @@ class Post(models.Model):
         related_name='+',
         on_delete=models.DO_NOTHING
     )
+
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return f'{self.message}'
