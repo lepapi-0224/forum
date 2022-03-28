@@ -43,7 +43,8 @@ class Topic(models.Model):
     starter = models.ForeignKey(
         User,
         related_name='topics',
-        on_delete=models.DO_NOTHING
+        on_delete=models.DO_NOTHING,
+        null=True
     )
 
     objects = models.Manager()
@@ -74,6 +75,7 @@ class Post(models.Model):
     )
     created_by = models.ForeignKey(
         User,
+        null=True,
         related_name='posts',
         on_delete=models.DO_NOTHING
     )
