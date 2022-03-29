@@ -19,6 +19,12 @@ class Board(models.Model):
 
     objects = models.Manager()
 
+    def get_posts_count(self):
+        return Post.objects.filter(topic__board=self).count()
+
+    def get_last_post(self):
+        return Post.objects.filter(topic__board=self).order_by('-created_at').first()
+
     class Meta:
         ordering = ['name']
 
@@ -45,6 +51,9 @@ class Topic(models.Model):
         related_name='topics',
         on_delete=models.DO_NOTHING,
         null=True
+    )
+    views = models.PositiveIntegerField(
+        default=0
     )
 
     objects = models.Manager()
