@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     {% block stylesheet %} {% endblock %}
+    <style>
+      html{
+        height: 100%;
+      }
+      body{
+        min-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      footer{
+        margin-top: auto;
+        padding: 1em;
+        background: #333;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     {% block body %}  <!-- HERE -->
@@ -56,5 +74,15 @@
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     {% block javascript %} {% endblock %}
+
+    <!-- Footer -->
+  <footer class="footer">
+
+        <div class="footer-copyright text-center py-3">&copy; 2022 Copyright:
+            <a href="mailto:wonewo.eric@gmail.com">Lontsi Valdo</a></p>
+        </div>
+  </footer>
+  <!-- Footer -->
   </body>
+
 </html>
